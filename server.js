@@ -20,6 +20,10 @@ app.get("/", (req, res) => {
   res.status(200).json({ msg: "Express server is running!" });
 });
 
+//// Posts Routes
+const postRoutes = require("./routes/PostRoutes");
+app.use("/api", postRoutes);
+
 const dbUrl = process.env.MONGO_URL;
 const port = process.env.PORT;
 
