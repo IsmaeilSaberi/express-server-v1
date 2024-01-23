@@ -1,4 +1,15 @@
+const Post = require("../models/Post");
+
 const getAllPosts = async (req, res) => {
-  res.status(200).json({ msg: "this is getAllposts route!" });
+  try {
+    //for error use bellow code
+    // console.log(i);
+
+    const allPosts = await Post.find();
+
+    res.status(200).json(allPosts);
+  } catch (err) {
+    res.status(400).json({ msg: "errorr!" });
+  }
 };
 module.exports.getAllPosts = getAllPosts;
